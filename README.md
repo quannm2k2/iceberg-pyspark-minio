@@ -105,6 +105,7 @@ spark-shell
 
 ### 6. Run Project
 - Perform `INSERT`, `UPDATE`, `DELETE` and some basic queries
+- Perform `version control` and `time travel` queries
 - In the MinIO dashboard, access the data storage bucket to view information about the `data files`, `manifest files`, and `metadata file`.
 
 
