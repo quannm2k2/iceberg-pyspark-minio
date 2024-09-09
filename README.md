@@ -21,7 +21,7 @@ Before you begin, make sure you have the following:
 ### 1. **Clone the Repository**
 ```bash
 git clone https://github.com/NgMQ1111/iceberg-pyspark-minio.git
-cd your-repo-name
+cd iceberg-pyspark-minio
 ```
 
 ### 2. **Set up MinIO**
