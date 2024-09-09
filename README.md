@@ -41,7 +41,44 @@ docker-compose up -d
 - In the MinIO dashboard, create an S3 bucket to store Apache Iceberg files name.
 - Upload file `data-csv/supermarket_sales.csv` to your bucket.
 
-### 3. **Install Apache Iceberg and Configuration**
+### 3. Install Apache Spark
+**Step 1: Download and Install Apache Spark**
+- Go to `https://spark.apache.org/downloads.html`
+- Download the `.tgz` file and extract it to the desired folder on your computer.
+
+**Step 2: Configure Spark environment variables**
+- Linux/macOS:
+  
+```bash
+export SPARK_HOME=/path/to/spark
+export PATH=$SPARK_HOME/bin:$PATH
+```
+
+- Windows:
+  - Go to **Environment Variables**, add `SPARK_HOME` and update `Path`.
+
+**Step 3: Check the installation**
+
+```bash
+spark-shell
+```
+
+### 4. **Install Hadoop and `winutils.exe` for Windows**
+**Step 1: Download `winutils.exe`**
+- Go to `https://github.com/steveloughran/winutils`
+- Download the `winutils.exe` file for the Hadoop version that matches your Spark version
+
+**Step 2: Put `winutils.exe` in Hadoop folder**
+- Create a directory to contain Hadoop on your system, for example:
+  
+   - `C:\hadoop\bin`
+   
+- Copy the `winutils.exe` file into the `C:\hadoop\bin` directory
+
+**Step 3: Configure environment variables**
+- Do the same with **Spark** configuration
+
+### 5. **Install Apache Iceberg and Configuration**
 **Step 1: Install Iceberg**
 - You can use **PySpark** or **Java** for **Apache Iceberg**. Here is an example using **PySpark**.
 - First, let's install **Apache Iceberg** with **PySpark**:
@@ -66,7 +103,7 @@ docker-compose up -d
 ***Note: Spark and Hadoop Configuration***
 - The project uses PySpark and Hadoop's S3A file system to connect to MinIO. The `spark_config.py` contains the configuration for the Spark session. Ensure that you configure your environment properly
 
-### 4. Run Project
+### 6. Run Project
 - Perform `INSERT`, `UPDATE`, `DELETE` and some basic queries
 - In the MinIO dashboard, access the data storage bucket to view information about the `data files`, `manifest files`, and `metadata file`.
 
